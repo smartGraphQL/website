@@ -1,54 +1,135 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
-import QuoteBox from './QuoteBox';
-import quotesArray from './Quotes';
 
+// const introStyle = {
+//   position: 'relative',
+//   margin: '20%',
+//   textAlign: 'center'
+// }
 
-// User Story #1: I can see a wrapper element with a corresponding id="quote-box".
-// User Story #2: Within #quote-box, I can see an element with a corresponding id="text".
-// User Story #3: Within #quote-box, I can see an element with a corresponding id="author".
-// User Story #4: Within #quote-box, I can see a clickable element with a corresponding id="new-quote".
-// User Story #5: Within #quote-box, I can see a clickable element with a corresponding id="tweet-quote".
-// User Story #6: On first load, my quote machine displays a random quote in the element with id="text".
-// User Story #7: On first load, my quote machine displays the random quote's author in the element with id="author".
-// User Story #8: When the #new-quote button is clicked, my quote machine should fetch a new quote and display it in the #text element.
-// User Story #9: My quote machine should fetch the new quote's author when the #new-quote button is clicked and display it in the #author element.
-// User Story #10: I can tweet the current quote by clicking on the #tweet-quote a element. This a element should include the "twitter.com/intent/tweet" path in it's href attribute to tweet the current quote.
-// User Story #11: The #quote-box wrapper element should be horizontally centered. Please run tests with browser's zoom level at 100% and page maximized.
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quotes: quotesArray,
-      quote: [],
-      currentQuote: '',
-      currentAuthor: ''
-    }
-    this.randomQuote = this.randomQuote.bind(this);
+      speed: this.props.speed || 1,
+
+      width: '100%',
+      height: this.props.height || '100%',
+
+      top: this.props.top || '0%',
+      left: this.props.left,
+      right: this.props.right,
+
+      position: 'absolute',
+      zindex: this.props.zindex || '0',
+
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      backgroundColor: this.props.color || null,
+      backgroundImage: `url(${this.props.image})`,
+    };
+
+    this.handleScroll = this.throttle(this.handleScroll.bind(this), 10);
+
+    this.top = this.getTop();
   }
 
   componentDidMount() {
-    if(this.state.currentQuote === '') {
-      this.randomQuote();
-    }
+    window.addEventListener('scroll', this.handleScroll);
   }
 
-  randomQuote() {
-    const index = Math.floor(Math.random() * 103);
-    const quote = this.state.quotes[index];
-    this.setState({ currentQuote: quote[0], currentAuthor: quote[1]});
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  getTop() {
+    const top = this.state.top;
+
+    return top.indexOf('%') > -1 ?
+    window.innerHeight = (top.replace('%', '') / 100) :
+    parseInt(top, 10);
+  }
+
+  handleScroll() {
+    const speed = this.state.speed;
+    const top = this.top;
+
+    //calculate new top
+    //get current scroll level, # of pixels from the absolute top
+    const pageTop = window.scrollY;
+    const newTop = (top - (pageTop * speed));
+    //console.log('top is', pageTop, 'new top is', newTop);
+    
+    //set new top position
+    //ref is referencing the node that was just created
+    this.refs.parallaxElement.top = `${newTop}px`;
+    //this.refs.parallaxElement.style.transform = `translate(0, ${newTop}px, 0)`;
+
+  }
+  
+  //handleClick runs about billion times per minute, so throttling function is needed to reduce the number of handleClick calls to one call per 200-400 milliseconds
+  throttle(fn, wait) {
+    let time = Date.now();
+    return function() {
+      if((time + wait - Date.now()) < 0) {
+        fn();
+        time = Date.now();
+      }
+    }
   }
 
   render() {
     return (
-      <div className="App container">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <div id="wrapper">
-          <QuoteBox id="quote-box" randomquote={this.randomQuote} currentAuthor={this.state.currentAuthor} currentQuote={this.state.currentQuote}/>
+      <div id="container">
+        <Introduction 
+          ref = "parallaxElement"
+          speed = {0.5}
+          zindex = "0"
+          top = "0%"
+          style = {{...this.state}}
+        />
+        <GettingStarted 
+          ref = "parallaxElement"
+          speed = {2.5}
+          zindex = "1"
+          top = "40%"
+          style = {{...this.state}}
+        />
+      </div>
+    );
+  }
+}
+
+class Introduction extends Component {
+  // constructor(props) {
+  //   super(props)
+  // }
+
+  render() {
+    return (
+      <div 
+        id="intro"
+
+      >
+      <img src={logo} className="app-logo" alt="logo" />
+        <div className="info">
+        <h2><strong>SmartGraphQL</strong></h2><br></br>
+       <p>
+        Secure your GraphQL server <br></br>
+        by limiting cost and depth of incoming queries
+      </p>
         </div>
       </div>
+    );
+  }
+}
+
+class GettingStarted extends Component {
+  render() {
+    return (
+      <h2>Getting Started</h2>
     );
   }
 }
