@@ -83,7 +83,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div className="container">
           <Introduction 
             ref = "parallaxElement"
             speed = {0.5}
@@ -91,10 +90,7 @@ class App extends Component {
             top = "0%"
             style = {{...this.state}}
           />
-        </div>
-        <div id="nav" className="container">
           <NavBar />
-        </div>
           <GettingStarted 
             ref = "parallaxElement"
             speed = {2.5}
@@ -113,13 +109,13 @@ class Introduction extends Component {
     return (
       <div 
         id="intro"
-        
+        className="container"
       >
       <img src={logo} className="app-logo" alt="logo" />
         <div className="info">
         <h2><strong>SmartGraphQL</strong></h2><br></br>
         <p>
-          Secure your GraphQL server <br></br>
+          Secure your GraphQL endpoint <br></br>
           by limiting cost and depth of incoming queries
         </p>
         </div>
@@ -145,7 +141,8 @@ class NavBar extends Component {
   render() {
     return (
       <div
-        id="nav-bar"
+        id="nav"
+        className="container"
       >
         <ul>
           <li><a href="#header">Home</a></li>
