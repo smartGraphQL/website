@@ -32,6 +32,7 @@ class App extends Component {
     };
 
     this.handleScroll = this.throttle(this.handleScroll.bind(this), 10);
+    this.handleShow = this.handleShow.bind(this);
 
     this.top = this.getTop();
   }
@@ -79,29 +80,33 @@ class App extends Component {
       }
     }
   }
+  
+  handleShow(e) {
+    console.log(this.refs.parallaxElement);
+    console.log('link clicked')
+    // this.refs.scrollIntoView({block: 'end', behavior: 'smooth'});
+  }
 
   render() {
     return (
       <div>
-        <div className="container">
           <Introduction 
+            handleShow={this.handleShow}
             ref = "parallaxElement"
-            speed = {0.5}
-            zindex = "0"
-            top = "0%"
-            style = {{...this.state}}
+            // speed = {0.5}
+            // zindex = "0"
+            // top = "0%"
+            // style = {{...this.state}}
           />
-        </div>
-        <div id="nav" className="container">
           <NavBar />
-        </div>
           <GettingStarted 
             ref = "parallaxElement"
-            speed = {2.5}
-            zindex = "1"
-            top = "40%"
-            style = {{...this.state}}
+            // speed = {2.5}
+            // zindex = "1"
+            // top = "40%"
+            // style = {{...this.state}}
           />
+          <Features />
       </div>
     );
   }
@@ -110,18 +115,22 @@ class App extends Component {
 class Introduction extends Component {
 
   render() {
+    // console.log('props intro', this.props)
     return (
       <div 
         id="intro"
-        
+        className="container"
       >
       <img src={logo} className="app-logo" alt="logo" />
         <div className="info">
-        <h2><strong>SmartGraphQL</strong></h2><br></br>
+        <h1><strong>SmartGraphQL</strong></h1><br></br>
         <p>
-          Secure your GraphQL server <br></br>
+          Secure your GraphQL endpoint <br></br>
           by limiting cost and depth of incoming queries
         </p>
+        <ScrollArrow 
+          handleShow={this.props.handleShow}
+        />
         </div>
       </div>
     );
@@ -135,7 +144,11 @@ class GettingStarted extends Component {
         id="getting-started" 
         className="container"
       >
-        <h2>Getting Started</h2>
+        <h2><strong>GETTING STARTED</strong></h2><br></br>
+        <p>Steps to start will go here</p>
+        <p>Steps to start will go here</p>
+        <p>Steps to start will go here</p>
+        <p>Steps to start will go here</p>
       </div>
     );
   }
@@ -145,17 +158,46 @@ class NavBar extends Component {
   render() {
     return (
       <div
-        id="nav-bar"
+        id="nav"
+        className="container"
       >
-        <ul>
-          <li><a href="#header">Home</a></li>
-          <li><a href="#getting-started">Getting started</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+            <a href="#header">Home</a>
+            <a href="#getting-started">Getting started</a>
+            <a href="#features">Features</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
       </div>
     )
+  }
+}
+
+class ScrollArrow extends Component {
+
+   render() {
+    return (
+      <div className="scroll-element">
+        <div id="scroll">
+        <a href="#home" onClick={(e) => this.props.handleShow(e)}><span></span><span></span><span></span>Link</a>
+        </div>
+      </div>
+    )
+  }
+}
+
+class Features extends Component {
+  render() {
+    return (
+      <div
+        id="features" 
+        className="container"
+      >
+        <h2><strong>FEATURES</strong></h2><br></br>
+        <p>Features will go here</p>
+        <p>Features will go here</p>
+        <p>Features will go here</p>
+        <p>Features will go here</p>
+      </div>
+    );
   }
 }
 
