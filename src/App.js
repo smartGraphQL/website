@@ -82,44 +82,46 @@ class App extends Component {
 
   render() {
     return (
-      <div id="container">
-        <Introduction 
-          ref = "parallaxElement"
-          speed = {0.5}
-          zindex = "0"
-          top = "0%"
-          style = {{...this.state}}
-        />
-        <GettingStarted 
-          ref = "parallaxElement"
-          speed = {2.5}
-          zindex = "1"
-          top = "40%"
-          style = {{...this.state}}
-        />
+      <div>
+        <div className="container">
+          <Introduction 
+            ref = "parallaxElement"
+            speed = {0.5}
+            zindex = "0"
+            top = "0%"
+            style = {{...this.state}}
+          />
+        </div>
+        <div id="nav" className="container">
+          <NavBar />
+        </div>
+          <GettingStarted 
+            ref = "parallaxElement"
+            speed = {2.5}
+            zindex = "1"
+            top = "40%"
+            style = {{...this.state}}
+          />
       </div>
     );
   }
 }
 
 class Introduction extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
 
   render() {
     return (
       <div 
         id="intro"
-
+        
       >
       <img src={logo} className="app-logo" alt="logo" />
         <div className="info">
         <h2><strong>SmartGraphQL</strong></h2><br></br>
-       <p>
-        Secure your GraphQL server <br></br>
-        by limiting cost and depth of incoming queries
-      </p>
+        <p>
+          Secure your GraphQL server <br></br>
+          by limiting cost and depth of incoming queries
+        </p>
         </div>
       </div>
     );
@@ -129,8 +131,31 @@ class Introduction extends Component {
 class GettingStarted extends Component {
   render() {
     return (
-      <h2>Getting Started</h2>
+      <div
+        id="getting-started" 
+        className="container"
+      >
+        <h2>Getting Started</h2>
+      </div>
     );
+  }
+}
+
+class NavBar extends Component {
+  render() {
+    return (
+      <div
+        id="nav-bar"
+      >
+        <ul>
+          <li><a href="#header">Home</a></li>
+          <li><a href="#getting-started">Getting started</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    )
   }
 }
 
