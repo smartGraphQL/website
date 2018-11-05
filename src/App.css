@@ -32,7 +32,7 @@ body {
 }
 
 #intro {
-  padding: 20% 0 400px 0;  
+  padding: 15% 0 450px 0;  
   color: rgba(232, 234, 238, 0.986);
 }
 
@@ -47,7 +47,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   margin: 0;
-  background: rgb(239, 240, 245);
+  background: #E5E7EE;
   line-height: 40px;
   position: -webkit-sticky;
   position: sticky;
@@ -58,24 +58,45 @@ body {
 }
 
 #nav a {
-  margin: 3% 5% 3% 5%;
+  margin: 10px 3% 10px 3%;
   list-style-type: none;
   text-decoration: none;
   color: #1E2833;
   font-size: 1rem;
   text-transform: uppercase;
+  padding: 0 10px 0 10px;
+}
+
+#nav a:hover {
+  background: #1E2833;
+  color: #E5E7EE;
+  border-radius: 3px;
+}
+
+#nav a.active {
+  text-decoration: underline;
 }
 
 #getting-started {
   margin: 0;
-  background: #E5E7EE;
-  padding: 20% 0 400px 0;  
+  background: #CBD5E0;;
+  padding: 15% 0 450px 0;  
   color: #1E2833;
 }
 
 #features {
-  background: rgb(214, 220, 228);
-  padding: 20% 0 400px 0;  
+  background: #E5E7EE;
+  padding: 15% 0 450px 0;  
+}
+
+#team {
+  background: #CBD5E0;;
+  padding: 15% 0 450px 0;  
+}
+
+#contact {
+  background: #E5E7EE;
+  padding: 15% 0 450px 0;  
 }
 
 #scroll {

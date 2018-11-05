@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
+// import PropTypes from "prop-types";
+// import scrollIntoView from "scroll-into-view";
 import logo from './logo.png';
 import './App.css';
-
-// const introStyle = {
-//   position: 'relative',
-//   margin: '20%',
-//   textAlign: 'center'
-// }
-
 
 class App extends Component {
   constructor(props) {
@@ -32,7 +27,6 @@ class App extends Component {
     };
 
     this.handleScroll = this.throttle(this.handleScroll.bind(this), 10);
-    this.handleShow = this.handleShow.bind(this);
 
     this.top = this.getTop();
   }
@@ -66,11 +60,11 @@ class App extends Component {
     //set new top position
     //ref is referencing the node that was just created
     this.refs.parallaxElement.top = `${newTop}px`;
-    //this.refs.parallaxElement.style.transform = `translate(0, ${newTop}px, 0)`;
+    // this.refs.parallaxElement.style.transform = `translate(0, ${newTop}px, 0)`;
 
   }
   
-  //handleClick runs about billion times per minute, so throttling function is needed to reduce the number of handleClick calls to one call per 200-400 milliseconds
+  //handleScroll runs about billion times per minute, so throttling function is needed to reduce the number of handleScroll calls to one call per 200-400 milliseconds
   throttle(fn, wait) {
     let time = Date.now();
     return function() {
@@ -81,15 +75,9 @@ class App extends Component {
     }
   }
   
-  handleShow(e) {
-    console.log(this.refs.parallaxElement);
-    console.log('link clicked')
-    // this.refs.scrollIntoView({block: 'end', behavior: 'smooth'});
-  }
-
   render() {
     return (
-      <div>
+      <div className="app">
           <Introduction 
             handleShow={this.handleShow}
             ref = "parallaxElement"
@@ -107,6 +95,8 @@ class App extends Component {
             // style = {{...this.state}}
           />
           <Features />
+          <Team />
+          <Contact />
       </div>
     );
   }
@@ -161,7 +151,7 @@ class NavBar extends Component {
         id="nav"
         className="container"
       >
-            <a href="#header">Home</a>
+            <a href="#intro">Home</a>
             <a href="#getting-started">Getting started</a>
             <a href="#features">Features</a>
             <a href="#team">Team</a>
@@ -196,6 +186,41 @@ class Features extends Component {
         <p>Features will go here</p>
         <p>Features will go here</p>
         <p>Features will go here</p>
+      </div>
+    );
+  }
+}
+
+class Team extends Component {
+  render() {
+    return (
+      <div
+        id="team" 
+        className="container"
+      >
+        <h2><strong>MEET THE TEAM</strong></h2><br></br>
+        <p>Team member</p>
+        <p>Team member</p>
+        <p>Team member</p>
+        <p>Team member</p>
+      </div>
+    );
+  }
+}
+
+class Contact extends Component {
+  render() {
+    return (
+      <div
+        id="contact" 
+        className="container"
+      >
+        <h2><strong>CONTACT US</strong></h2><br></br>
+        <p>Found a bug? Let us know.</p>
+        <p>Do you use SmartGraphQL in your workflow? We'd love to hear what you think!</p>
+        <form>
+          <input type="text" placeholder="placeholder for the form"></input>
+        </form>
       </div>
     );
   }
