@@ -58,7 +58,7 @@ body {
 }
 
 #nav a {
-  margin: 10px 3% 10px 3%;
+  margin: 15px 3% 10px 3%;
   list-style-type: none;
   text-decoration: none;
   color: #1E2833;
@@ -78,10 +78,46 @@ body {
 }
 
 #getting-started {
+  max-width: 100%;
+  min-width: 350px;
   margin: 0;
   background: #CBD5E0;;
   padding: 15% 0 450px 0;  
   color: #1E2833;
+}
+
+#content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#introduction {
+  font-size: 1 rem;
+  text-align: justify;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 15px;
+}
+
+#steps {
+  max-width: 700px;
+  margin-left: 0;
+  vertical-align: top;
+  font-size: 1 rem;
+  text-align: justify;
+}
+
+#getting-started img {
+  max-width: 80%;
+  min-width: 50%;
+  height: auto;
+  border-radius: 3px; 
+  margin-top: 10px;
 }
 
 #features {

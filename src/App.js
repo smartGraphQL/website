@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 // import PropTypes from "prop-types";
 // import scrollIntoView from "scroll-into-view";
-import logo from './logo.png';
+import logo from './assets/logo.png';
+import code from './assets/code_snippet.png';
 import './App.css';
 
 class App extends Component {
@@ -81,18 +82,10 @@ class App extends Component {
           <Introduction 
             handleShow={this.handleShow}
             ref = "parallaxElement"
-            // speed = {0.5}
-            // zindex = "0"
-            // top = "0%"
-            // style = {{...this.state}}
           />
           <NavBar />
           <GettingStarted 
             ref = "parallaxElement"
-            // speed = {2.5}
-            // zindex = "1"
-            // top = "40%"
-            // style = {{...this.state}}
           />
           <Features />
           <Team />
@@ -135,10 +128,27 @@ class GettingStarted extends Component {
         className="container"
       >
         <h2><strong>GETTING STARTED</strong></h2><br></br>
-        <p>Steps to start will go here</p>
-        <p>Steps to start will go here</p>
-        <p>Steps to start will go here</p>
-        <p>Steps to start will go here</p>
+        <div id="introduction"> 
+          <p>
+            GraphQL is rising in popularity in web services because of declarative data fetching, 
+            however one major drawback is the ability of users and hackers to create complex queries 
+            that could potentially slow down or crash the server. As websites gain more users and traffic, 
+            this becomes a greater concern - especially if server crashes can cause a loss in revenue. 
+            To address this concern, we built SmartGraphQL to give GraphQL admins the ability to configure 
+            rules that  analyze queries in the validation phase and execute only safe ones.  
+          </p>
+        </div>
+        <div id="content">
+          <div id="steps">
+            <p>Add SmartGraphQL library to your project by running <code>npm install -s smartgraphql</code></p>
+            <p>Set limits for cost and depth complexity</p>
+            <p>Add the built-in GraphQL validation module to your endpoint</p>
+            <p>Pass the objects returned by cost and depth checks into valiation rules</p>
+          </div>
+          <div id="code">
+            <img src={code}></img>
+          </div>
+        </div>
       </div>
     );
   }
@@ -167,7 +177,7 @@ class ScrollArrow extends Component {
     return (
       <div className="scroll-element">
         <div id="scroll">
-        <a href="#home" onClick={(e) => this.props.handleShow(e)}><span></span><span></span><span></span>Link</a>
+        <a href="#getting-started"><span></span><span></span><span></span></a>
         </div>
       </div>
     )
@@ -182,8 +192,14 @@ class Features extends Component {
         className="container"
       >
         <h2><strong>FEATURES</strong></h2><br></br>
-        <p>Features will go here</p>
-        <p>Features will go here</p>
+        <p>
+          GraphQL query depth is calculated by how nested the query is. Every nested field adds depth complexity. 
+          Too nested or cyclical queries can significantly slow down or even crash your server by 
+          being nested to a large amount, and this is where setting a depth limit becomes useful.
+        </p>
+        <p>
+          Query cost is calculated based on the number of times a resolve function makes a connection to the database.
+        </p>
         <p>Features will go here</p>
         <p>Features will go here</p>
       </div>
