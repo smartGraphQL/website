@@ -6,6 +6,7 @@ import logo from '../assets/logo.png';
  * Component must be class because of ref attribute when being rendered by App.js
  */
 class Introduction extends Component {
+  // eslint-disable-next-line
   constructor() {
     super();
   }

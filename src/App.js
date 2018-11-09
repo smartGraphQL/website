@@ -9,7 +9,7 @@ import Features from './components/features';
 import Team from './components/team';
 import Contact from './components/contact';
 
-import './App.css';
+import './css/App.css';
 
 class App extends Component {
   constructor(props) {
