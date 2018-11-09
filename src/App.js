@@ -140,10 +140,14 @@ class GettingStarted extends Component {
         </div>
         <div id="content">
           <div id="steps">
-            <p>Add SmartGraphQL library to your project by running <code>npm install -s smartgraphql</code></p>
-            <p>Set limits for cost and depth complexity</p>
-            <p>Add the built-in GraphQL validation module to your endpoint</p>
-            <p>Pass the objects returned by cost and depth checks into valiation rules</p>
+            <p><i class="fa fa-chevron-right" aria-hidden="true"></i> Add SmartGraphQL library to your project by running <code>npm install -s smartgraphql</code></p>
+            {/* <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">    
+            "https://code.jquery.com/jquery-3.3.1.slim.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure> */}
+            <p><i class="fa fa-chevron-right" aria-hidden="true"></i> Set limits for cost and depth complexity</p>
+            <p><i class="fa fa-chevron-right" aria-hidden="true"></i> Add the built-in GraphQL validation module to your endpoint</p>
+            <p><i class="fa fa-chevron-right" aria-hidden="true"></i> Pass the objects returned by cost and depth checks into valiation rules</p>
           </div>
           <div id="code">
             <img src={code}></img>
