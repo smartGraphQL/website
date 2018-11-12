@@ -29,28 +29,70 @@ class GettingStarted extends Component {
         <div id="content">
           <div id="steps">
             <p>
-              <i className="fa fa-chevron-right" aria-hidden="true" /> Add SmartGraphQL library to
-              your project by running <code>npm install -s smartgraphql</code>
+              <i className="fa fa-chevron-right" aria-hidden="true" />&nbsp;&nbsp;Add SmartGraphQL library to
+              your project
             </p>
-            {/* <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">    
-            "https://code.jquery.com/jquery-3.3.1.slim.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure> */}
+            <figure className="code">
+              <pre>
+                <code className="language-html" data-lang="html">
+                  <span className="nt">
+                $ npm install smartgraphql
+                  </span>
+                </code>
+              </pre>
+            </figure>
+            
             <p>
-              <i className="fa fa-chevron-right" aria-hidden="true" /> Set limits for cost and depth
-              complexity
+              <i className="fa fa-chevron-right" aria-hidden="true" />&nbsp;&nbsp;Set limit for cost complexity and add custom error message
             </p>
+            <figure className="code">
+              <pre>
+                <code className="language-html" data-lang="html">
+                  <span className="nt">
+                const costRule = &#123; <br></br>
+                &nbsp;&nbsp; costLimit: 10000,<br></br>
+                &nbsp;&nbsp; onSuccess: actualCost => `Complete, query cost is $&#123;actualCost&#125;`,<br></br>
+                &nbsp;&nbsp; onError: (actualCost, costLimit) => `Error: Cost is $&#123;actualCost&#125; but cost limit is set to $&#123;costLimit&#125;`<br></br>
+    &#125;;
+                  </span>
+                </code>
+              </pre>
+            </figure>
             <p>
-              <i className="fa fa-chevron-right" aria-hidden="true" /> Add the built-in GraphQL
-              validation module to your endpoint
+              <i className="fa fa-chevron-right" aria-hidden="true" />&nbsp;&nbsp;Set limit for depth complexity and add custom error message
             </p>
+            <figure className="code">
+              <pre>
+                <code className="language-html" data-lang="html">
+                  <span className="nt">
+                const depthRule = &#123; <br></br>
+                &nbsp;&nbsp; depthLimit: 100,<br></br>
+                &nbsp;&nbsp; onSuccess: actualDepth => `Complete, query depth is $&#123;actualDepth&#125;`,<br></br>
+                &nbsp;&nbsp; onError: (actualDepth, depthLimit) => `Error: Cost is $&#123;actualDepth&#125; but cost limit is set to $&#123;depthLimit&#125;`<br></br>
+    &#125;;
+                  </span>
+                </code>
+              </pre>
+            </figure>
             <p>
-              <i className="fa fa-chevron-right" aria-hidden="true" /> Pass the objects returned by
-              cost and depth checks into valiation rules
+              <i className="fa fa-chevron-right" aria-hidden="true" />&nbsp;&nbsp;Add the built-in GraphQL
+              validation module to your endpoint, pass the objects returned by cost and depth checks into valiation rules
             </p>
-          </div>
-          <div id="code">
-            <img src={code} alt="Code Snippet" />
+            <figure className="code">
+              <pre>
+                <code className="language-html" data-lang="html">
+                  <span className="nt">
+                    app.use( <br></br>
+                    &nbsp;&nbsp; '/graphql',<br></br>
+                    &nbsp;&nbsp; graphqlHTTP(() => (&#123; <br></br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; schema,<br></br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; validationRules: [depthComplexity(depthRule), costLimit(costRule)],<br></br>
+                    &nbsp;&nbsp; &#125;))<br></br>
+                    );
+                  </span>
+                </code>
+              </pre>
+            </figure>
           </div>
         </div>
       </div>

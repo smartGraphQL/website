@@ -9,18 +9,6 @@ it('renders without crashing', () => {
 });
 
 
-// const ruleCost = {
-//   costLimit: 10000,
-//   onSuccess: cost => `Complete, query cost is ${cost}`,
-//   onError: (cost, costLim) => `Error: Cost is ${cost} but cost limit is set to ${costLim}`,
-// };
-
-// const ruleDepth = {
-//   depthLimit: 100,
-//   onSuccess: depth => `Complete, query depth is ${depth}`,
-//   onError: (depth, maximumDepth) => `Error: Current depth is ${depth} but max depth is ${maximumDepth}`,
-// };
-
 // app.use(
 //   '/graphql',
 //   graphqlHTTP(() => ({
