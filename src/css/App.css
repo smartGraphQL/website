@@ -10,7 +10,6 @@ body {
   margin: 0;
   font-family: montserrat, sans-serif;
   font-size: 1.2rem;
-  /* overflow:hidden; */
 }
 
 .container {
@@ -82,14 +81,11 @@ body {
   min-width: 350px;
   margin: 0;
   background: #CBD5E0;;
-  padding: 15% 0 450px 0;  
+  padding: 15% 0 15% 0;  
   color: #1E2833;
 }
 
 #content {
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; */
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 20px;
@@ -99,9 +95,9 @@ body {
 
 #introduction {
   font-size: 1 rem;
-  text-align: justify;
-  margin-left: 10%;
-  margin-right: 10%;
+  text-align: center;
+  margin-left: 15%;
+  margin-right: 15%;
   margin-bottom: 15px;
 }
 
@@ -111,34 +107,46 @@ body {
   margin-top: 0;
   vertical-align: top;
   font-size: 1 rem;
-  text-align: justify;
+  text-align: left;
 }
 
-/* #getting-started img {
-  max-width: 550px;
-  min-width: 50%;
-  height: auto;
-  border-radius: 3px; 
-} */
+.step {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.step p {
+  width: 50%;
+  padding-right: 3%;
+}
+
+figure {
+  max-width: 50%;
+  width: 50%;
+  border-radius: 3px;
+}
 
 #features {
   background: #E5E7EE;
-  padding: 15% 0 450px 0;  
+  padding: 15% 0 15% 0;  
 }
 
 #team {
   background: #CBD5E0;;
-  padding: 15% 0 450px 0;  
+  padding: 15% 0 15% 0;  
 }
 
 #contact {
   background: #E5E7EE;
-  padding: 15% 0 450px 0;  
+  padding: 15% 0 15% 0;  
 }
 
 .code {
   padding: 5px 10px 0 10px;
   background-color: #E5E7EE;
+  font-size: 1.1rem;
 }
 
 #scroll {

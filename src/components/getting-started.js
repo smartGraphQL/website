@@ -15,21 +15,12 @@ class GettingStarted extends Component {
           <strong>GETTING STARTED</strong>
         </h2>
         <br />
-        <div id="introduction">
-          <p>
-            GraphQL is rising in popularity in web services because of declarative data fetching,
-            however one major drawback is the ability of users and hackers to create complex queries
-            that could potentially slow down or crash the server. As websites gain more users and
-            traffic, this becomes a greater concern - especially if server crashes can cause a loss
-            in revenue. To address this concern, we built SmartGraphQL to give GraphQL admins the
-            ability to configure rules that analyze queries in the validation phase and execute only
-            safe ones.
-          </p>
-        </div>
+        
         <div id="content">
           <div id="steps">
+            <div className="step">
             <p>
-              <i className="fa fa-chevron-right" aria-hidden="true" />&nbsp;&nbsp;Add SmartGraphQL library to
+              <i className="fa fa-chevron-right" aria-hidden="true" />&nbsp;&nbsp;Add SmartGraphQL dependency to
               your project
             </p>
             <figure className="code">
@@ -41,7 +32,9 @@ class GettingStarted extends Component {
                 </code>
               </pre>
             </figure>
-            
+            </div>
+
+             <div className="step">
             <p>
               <i className="fa fa-chevron-right" aria-hidden="true" />&nbsp;&nbsp;Set limit for cost complexity and add custom error message
             </p>
@@ -58,6 +51,9 @@ class GettingStarted extends Component {
                 </code>
               </pre>
             </figure>
+            </div>
+
+            <div className="step">
             <p>
               <i className="fa fa-chevron-right" aria-hidden="true" />&nbsp;&nbsp;Set limit for depth complexity and add custom error message
             </p>
@@ -74,6 +70,8 @@ class GettingStarted extends Component {
                 </code>
               </pre>
             </figure>
+            </div>
+            <div className="step">
             <p>
               <i className="fa fa-chevron-right" aria-hidden="true" />&nbsp;&nbsp;Add the built-in GraphQL
               validation module to your endpoint, pass the objects returned by cost and depth checks into valiation rules
@@ -86,13 +84,14 @@ class GettingStarted extends Component {
                     &nbsp;&nbsp; '/graphql',<br></br>
                     &nbsp;&nbsp; graphqlHTTP(() => (&#123; <br></br>
                     &nbsp;&nbsp;&nbsp;&nbsp; schema,<br></br>
-                    &nbsp;&nbsp;&nbsp;&nbsp; validationRules: [depthComplexity(depthRule), costLimit(costRule)],<br></br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; validationRules: [depthComplexity(depthRule), costLimit(costRule)]<br></br>
                     &nbsp;&nbsp; &#125;))<br></br>
                     );
                   </span>
                 </code>
               </pre>
             </figure>
+            </div>
           </div>
         </div>
       </div>

@@ -8,7 +8,10 @@ const Features = props => {
       </h2>
       <br />
       <p>
-        GraphQL query depth is calculated by how nested the query is. Every nested field adds depth
+        <i className="fa fa-chevron-right" aria-hidden="true" />&nbsp;&nbsp;Distributed as an npm package
+      </p>
+      <p>
+        Query depth is calculated by how nested the query is. Every nested field adds depth
         complexity. Too nested or cyclical queries can significantly slow down or even crash your
         server by being nested to a large amount, and this is where setting a depth limit becomes
         useful.

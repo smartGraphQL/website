@@ -19,10 +19,20 @@ class Introduction extends Component {
             <strong>SmartGraphQL</strong>
           </h1>
           <br />
-          <p>
+          {/* <p>
             Secure your GraphQL endpoint <br />
             by limiting cost and depth of incoming queries
+          </p> */}
+          <div id="introduction">
+          <p>
+            GraphQL is rising in popularity in web services because of declarative data fetching.
+            However, one major drawback is the ability of users and hackers to create complex queries
+            that could potentially slow down or crash the server. <br></br>
+            To address this concern, we built SmartGraphQL to give GraphQL admins the
+            ability to configure rules that analyze queries in the validation phase and execute only
+            safe ones.
           </p>
+        </div>
           <ScrollArrow handleShow={this.props.handleShow} />
         </div>
       </div>
