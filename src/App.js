@@ -23,17 +23,33 @@ class App extends Component {
 
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
+<<<<<<< Updated upstream
       backgroundColor: this.props.color || null,
       backgroundImage: `url(${this.props.image})`,
+=======
+      backgroundColor: color || null,
+      backgroundImage: `url(${image})`,
+
+      isSelected: 'home'
+>>>>>>> Stashed changes
     };
 
     this.handleScroll = this.throttle(this.handleScroll.bind(this), 10);
-
     this.top = this.getTop();
+    // this.scrollTo = this.scrollTo.bind(this);
+  }
+
+  scrollTo(e) {
+    console.log('this element is clicked', e.target.title)
+    const view = document.getElementById(`${e.target.title}`)
+    const getS = document.getElementById('getting-started');
+    console.log(view)
+    view.scrollIntoView({block: 'start', behavior: 'smooth'});
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
+    
   }
 
   componentWillUnmount() {
@@ -69,8 +85,13 @@ class App extends Component {
   throttle(fn, wait) {
     let time = Date.now();
     return function() {
+<<<<<<< Updated upstream
       if((time + wait - Date.now()) < 0) {
         fn();
+=======
+      if (time + wait - Date.now() < 0) {
+        // fn();
+>>>>>>> Stashed changes
         time = Date.now();
       }
     }
@@ -78,6 +99,7 @@ class App extends Component {
   
   render() {
     return (
+<<<<<<< Updated upstream
       <div className="app">
           <Introduction 
             handleShow={this.handleShow}
@@ -241,6 +263,15 @@ class Contact extends Component {
         <form>
           <input type="text" placeholder="placeholder for the form"></input>
         </form>
+=======
+      <div className="app" ref="app">
+        <Introduction scroll={this.scrollTo.bind(this)}/>
+        <NavBar scroll={this.scrollTo.bind(this)}/>
+        <GettingStarted />
+        <Features />
+        <Team />
+        <Contact />
+>>>>>>> Stashed changes
       </div>
     );
   }

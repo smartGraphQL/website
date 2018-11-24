@@ -6,6 +6,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
+<<<<<<< Updated upstream
 });
 
 
@@ -29,3 +30,6 @@ it('renders without crashing', () => {
 //     validationRules: [depthComplexity(ruleDepth), costLimit(ruleCost)],
 //   })),
 // );
+=======
+});
+>>>>>>> Stashed changes
