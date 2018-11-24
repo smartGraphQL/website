@@ -1,7 +1,5 @@
 
 import React, { Component } from 'react';
-// import PropTypes from "prop-types";
-// import scrollIntoView from "scroll-into-view";
 
 import Introduction from './components/introduction';
 import NavBar from './components/navbar';
@@ -40,10 +38,8 @@ class App extends Component {
   }
 
   scrollTo(e) {
-    console.log('this element is clicked', e.target.title)
     const view = document.getElementById(`${e.target.title}`)
     const getS = document.getElementById('getting-started');
-    console.log(view)
     view.scrollIntoView({block: 'start', behavior: 'smooth'});
   }
 
