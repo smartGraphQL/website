@@ -70,10 +70,12 @@ body {
   background: #1E2833;
   color: #E5E7EE;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 #nav a.active {
   text-decoration: underline;
+  cursor: help;
 }
 
 #getting-started {
@@ -151,6 +153,7 @@ figure {
 
 #scroll {
   top: 50%;
+  cursor: pointer;
 }
 
 #scroll a span {

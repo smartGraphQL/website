@@ -11,6 +11,7 @@ class Introduction extends Component {
     super();
   }
   render() {
+    console.log('props in introduction component', this.props)
     return (
       <div id="intro" className="container">
         <img src={logo} className="app-logo" alt="logo" />
@@ -33,7 +34,7 @@ class Introduction extends Component {
             safe ones.
           </p>
         </div>
-          <ScrollArrow handleShow={this.props.handleShow} />
+          <ScrollArrow scroll={this.props.scroll} />
         </div>
       </div>
     );

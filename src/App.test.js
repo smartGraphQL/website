@@ -7,13 +7,3 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
-
-
-// app.use(
-//   '/graphql',
-//   graphqlHTTP(() => ({
-//     schema,
-//     graphiql: true,
-//     validationRules: [depthComplexity(ruleDepth), costLimit(ruleCost)],
-//   })),
-// );

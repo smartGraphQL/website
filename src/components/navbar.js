@@ -1,13 +1,20 @@
 import React from 'react';
 
 const NavBar = props => {
+
+  const links = [
+    ["intro", "HOME"],
+    ["getting-started", "GETTING STARTED"],
+    ["features", "FEATURES"],
+    ["team", "TEAM"], 
+    ["contact", "CONTACT"]
+  ];
+
   return (
     <div id="nav" className="container">
-      <a href="#intro">Home</a>
-      <a href="#getting-started">Getting started</a>
-      <a href="#features">Features</a>
-      <a href="#team">Team</a>
-      <a href="#contact">Contact</a>
+      {links.map(link => {
+        return(<a title={link[0]} onClick={props.scroll}>{link[1]}</a>);
+      })}
     </div>
   );
 };
